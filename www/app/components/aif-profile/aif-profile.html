@@ -1,0 +1,12 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-icons/core-icons.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+
+<polymer-element name="aif-profile" attributes="person">
+    <template>
+        <paper-icon-button icon="arrow-back" on-tap="{{goBack}}"></paper-icon-button>
+        {{person.name}}
+    </template>
+
+    <script src="aif-profile.js"></script>
+</polymer-element>

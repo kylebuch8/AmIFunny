@@ -1,0 +1,29 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../components/aif-login/aif-login.html">
+<link rel="import" href="../../components/aif-main/aif-main.html">
+<link rel="import" href="../../components/aif-rate/aif-rate.html">
+<link rel="import" href="../../components/aif-profile/aif-profile.html">
+<link rel="import" href="../../components/aif-search/aif-search.html">
+
+<polymer-element name="aif-app">
+    <template>
+        <style>
+
+        core-animated-pages {
+            height: 100%;
+        }
+
+        </style>
+
+        <core-animated-pages selected="{{selected}}">
+            <aif-login name="login"></aif-login>
+            <aif-main name="main" person="{{person}}"></aif-main>
+            <aif-rate name="rate" person="{{person}}"></aif-rate>
+            <aif-profile name="profile" person="{{person}}"></aif-profile>
+            <aif-search name="search"></aif-search>
+        </core-animated-pages>
+    </template>
+
+    <script src="aif-app.js"></script>
+</polymer-element>

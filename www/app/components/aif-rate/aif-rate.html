@@ -1,0 +1,20 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-icons/core-icons.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-slider/paper-slider.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<polymer-element name="aif-rate" attributes="person">
+    <template>
+        <paper-icon-button icon="arrow-back" on-tap="{{goBack}}"></paper-icon-button>
+        <h1>Rate</h1>
+        <h2>{{rating}}</h2>
+        <p>{{person.name}}</p>
+        <section>
+            <paper-slider snaps max="5" step="0.5" value="{{starting}}" immediateValue="{{rating}}"></paper-slider>
+        </section>
+        <paper-button on-tap="{{submit}}">Submit</paper-button>
+    </template>
+
+    <script src="aif-rate.js"></script>
+</polymer-element>
