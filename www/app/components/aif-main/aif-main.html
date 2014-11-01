@@ -4,10 +4,45 @@
 <link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-icons/core-icons.html">
 <link rel="import" href="../../bower_components/core-icon-button/core-icon-button.html">
-<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 
 <polymer-element name="aif-main" attributes="person">
     <template>
+        <style>
+
+        core-toolbar {
+            background-color: #009688;
+            color: white;
+        }
+
+        .row {
+            padding: 16px;
+        }
+
+        .circle {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: grey;
+        }
+
+        .profile-pic {
+            margin-right: 16px;
+            background-position: center;
+            background-size: 40px;
+        }
+
+        .rate-icon {
+            color: #ffc107;
+        }
+
+        .average {
+            font-size: 12px;
+            color: rgb(54%, 54%, 54%);
+        }
+
+        </style>
+
         <core-drawer-panel>
             <core-header-panel main>
 
@@ -18,9 +53,15 @@
 
                 <section>
                     <template repeat="{{person in people}}">
-                        <div layout horizontal center>
-                            <div flex on-tap="{{selectPerson}}">{{person.name}}</div>
-                            <paper-button on-tap="{{goToRate}}">Rate</paper-button>
+                        <div class="row" layout horizontal center>
+                            <div layout horizontal center flex on-tap="{{selectPerson}}">
+                                <div class="circle profile-pic" style="background-image: url({{person.profilePic}})"></div>
+                                <div flex>
+                                    <div>{{person.name}}</div>
+                                    <div class="average">Avg: 2.6</div>
+                                </div>
+                            </div>
+                            <paper-icon-button class="rate-icon" icon="star" on-tap="{{goToRate}}"></paper-icon-button>
                         </div>
                     </template>
                 </section>
