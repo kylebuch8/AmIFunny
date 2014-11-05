@@ -33,6 +33,12 @@
 
         showSearch: function () {
             this.selected = 'search';
+        },
+
+        setupView: function () {
+            if (this.selected === 'profile') {
+                this.querySelector('::shadow aif-profile').fire('setHeaderHeight');
+            }
         }
     });
 }());

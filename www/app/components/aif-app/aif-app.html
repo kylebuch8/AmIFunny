@@ -14,14 +14,29 @@
             height: 100%;
         }
 
+        section > * {
+            display: block;
+            height: 100%;
+        }
+
         </style>
 
-        <core-animated-pages selected="{{selected}}">
-            <aif-login name="login"></aif-login>
-            <aif-main name="main" person="{{person}}"></aif-main>
-            <aif-rate name="rate" person="{{person}}"></aif-rate>
-            <aif-profile name="profile" person="{{person}}"></aif-profile>
-            <aif-search name="search"></aif-search>
+        <core-animated-pages selected="{{selected}}" transitions="cross-fade" on-core-animated-pages-transition-prepare="{{setupView}}">
+            <section name="login">
+                <aif-login></aif-login>
+            </section>
+            <section name="main">
+                <aif-main person="{{person}}" cross-fade></aif-main>
+            </section>
+            <section name="rate">
+                <aif-rate person="{{person}}" cross-fade></aif-rate>
+            </section>
+            <section name="profile">
+                <aif-profile person="{{person}}" cross-fade></aif-profile>
+            </section>
+            <section name="search">
+                <aif-search cross-fade></aif-search>
+            </section>
         </core-animated-pages>
     </template>
 
