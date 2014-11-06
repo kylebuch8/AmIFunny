@@ -7,13 +7,21 @@
 
         rating: 0,
 
+        ready: function () {
+            this.addEventListener('reset', function () {
+                this.starting = 0;
+                this.rating = 0;
+            });
+        },
+
         goBack: function () {
             this.fire('main');
         },
 
         submit: function () {
-            alert(this.rating);
-            this.fire('main');
+            this.fire('main', {
+                type: 'rate'
+            });
         }
     });
 }());

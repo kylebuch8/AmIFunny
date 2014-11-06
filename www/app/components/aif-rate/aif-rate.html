@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="../../bower_components/core-icons/core-icons.html">
 <link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../../bower_components/paper-slider/paper-slider.html">
@@ -6,14 +7,62 @@
 
 <polymer-element name="aif-rate" attributes="person">
     <template>
-        <paper-icon-button icon="arrow-back" on-tap="{{goBack}}"></paper-icon-button>
-        <h1>Rate</h1>
-        <h2>{{rating}}</h2>
-        <p>{{person.name}}</p>
-        <section>
-            <paper-slider snaps max="5" step="0.5" value="{{starting}}" immediateValue="{{rating}}"></paper-slider>
-        </section>
-        <paper-button on-tap="{{submit}}">Submit</paper-button>
+
+        <style>
+
+        core-toolbar {
+            background-color: #009688;
+            color: white;
+        }
+
+        .rating {
+            font-size: 56px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .intro {
+            text-align: center;
+        }
+
+        .text-small {
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 16px;
+        }
+
+        .confirm {
+            background-color: #009688;
+            color: white;
+        }
+
+        </style>
+
+        <core-toolbar>
+            <paper-icon-button icon="arrow-back" on-tap="{{goBack}}"></paper-icon-button>
+            <div flex>Rate</div>
+        </core-toolbar>
+
+        <div class="content">
+            <section class="intro">
+                <p class="text-small"><strong>{{person.name}}</strong> just made a joke</p>
+                <p>How funny was it?</p>
+            </section>
+
+            <h2 class="rating">{{rating}}</h2>
+
+            <section layout horizontal center>
+                <paper-slider snaps max="5" step="0.5" value="{{starting}}" immediateValue="{{rating}}" flex></paper-slider>
+            </section>
+
+            <section layout horizontal center-justified>
+                <paper-button on-tap="{{goBack}}">Cancel</paper-button>
+                <paper-button class="confirm" on-tap="{{submit}}">Submit</paper-button>
+            </section>
+        </div>
+
     </template>
 
     <script src="aif-rate.js"></script>

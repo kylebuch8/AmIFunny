@@ -19,7 +19,11 @@
             'search': 'showSearch'
         },
 
-        showMain: function () {
+        showMain: function (event) {
+            if (event.detail.type === 'rate') {
+                this.$.toast.show();
+            }
+
             this.selected = 'main';
         },
 
@@ -37,7 +41,11 @@
 
         setupView: function () {
             if (this.selected === 'profile') {
-                this.querySelector('::shadow aif-profile').fire('setHeaderHeight');
+                this.$.profile.fire('setHeaderHeight');
+            }
+
+            if (this.selected === 'rate') {
+                this.$.rate.fire('reset');
             }
         }
     });
