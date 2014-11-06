@@ -5,15 +5,12 @@
         ready: function () {
             this.addEventListener('setHeaderHeight', function () {
                 this.$.headerPanel.measureHeaderHeight();
+                this.$.headerPanel.shadowRoot.querySelector('#headerBg').style.backgroundImage = 'url(' + this.person.profilePic + ')';
             });
         },
 
         goBack: function () {
             this.fire('main');
-        },
-
-        personChanged: function(oldValue, newValue) {
-            this.$.headerPanel.querySelector('::shadow #headerBg').style.backgroundImage = 'url(' + newValue.profilePic + ')';
         }
     });
 }());
