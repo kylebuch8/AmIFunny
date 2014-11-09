@@ -1,0 +1,20 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="chart-js-import.html">
+
+<polymer-element name="chart-line" attributes="labels values colors" flex layout horizontal>
+    <template>
+        <style>
+
+        .chart-container {
+            width: 100%;
+            height: 200px;
+        }
+
+        </style>
+        <div class="chart-container">
+            <canvas id="canvas"></canvas>
+        </div>
+    </template>
+
+    <script src="chart-line.js"></script>
+</polymer-element>
