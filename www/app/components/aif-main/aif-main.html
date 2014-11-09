@@ -19,7 +19,7 @@
             padding: 16px;
         }
 
-        .circle {
+        .circle-img {
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -55,7 +55,7 @@
                     <template repeat="{{person in people}}">
                         <div class="row" layout horizontal center>
                             <div layout horizontal center flex on-tap="{{selectPerson}}">
-                                <div class="circle profile-pic" style="background-image: url({{person.profilePic}})"></div>
+                                <div class="circle-img profile-pic" style="background-image: url({{person.profilePic}})"></div>
                                 <div flex>
                                     <div>{{person.name}}</div>
                                     <div class="average">Avg: 2.6</div>

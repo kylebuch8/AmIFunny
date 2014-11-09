@@ -4,9 +4,15 @@
     Polymer('aif-profile', {
         ready: function () {
             this.addEventListener('setHeaderHeight', function () {
-                this.$.headerPanel.measureHeaderHeight();
-                this.$.headerPanel.shadowRoot.querySelector('#headerBg').style.backgroundImage = 'url(' + this.person.profilePic + ')';
+                this.$.chart.fire('draw');
             });
+        },
+
+        scrollHandler: function (event) {
+            var bottom = 200,
+                scrollTop = event.detail.target.scrollTop;
+
+            this.$.toolbar.style.backgroundColor = 'rgba(0, 150, 136,' + scrollTop / bottom + ')';
         },
 
         goBack: function () {
